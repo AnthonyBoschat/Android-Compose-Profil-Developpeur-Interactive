@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Kotlin1Theme(darkTheme = true) {
+            Kotlin1Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     ProfileContainer(
                         modifier = Modifier

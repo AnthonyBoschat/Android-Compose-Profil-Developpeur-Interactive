@@ -1,84 +1,63 @@
-## Titre
-Profil Développeur Anthony
+# Profil développeur interactif
 
-## Capture Avant
+## Description
 
-<img width="1047" height="1068" alt="{1B99285B-54D5-4C74-AC6F-758CE4F8761C}" src="https://github.com/user-attachments/assets/c2806e50-4322-4b1b-8cc3-bdfbf8d3c80b" />
+Mon profil de développeur en appli Android.
 
+On peut :
+- chercher un projet (nom, description ou techno) ;
+- mettre un projet en favori ;
+- afficher seulement les favoris ;
+- afficher seulement les projets terminés.
 
-## Capture après
+## États gérés par l'application
 
-<img width="386" height="742" alt="image" src="https://github.com/user-attachments/assets/dc410506-4386-4dd4-aa9b-fcb7b283ea9a" />
+- le texte de recherche ;
+- les projets favoris ;
+- le filtre favoris ;
+- le filtre projets terminés ;
+- la liste affichée.
 
-## Description courte
-Affiche dans une card le profil d'un développeur, en l'occurrence ici le mien.
+## État local
 
-Contient le nom du profil, un avatar, une liste de compétences, une liste de projets, des informations de contact, la disponibilité, et un bouton pour permettre à terme de contacter le développeur.
+> Quel état avez-vous conservé directement dans un composable et pourquoi ?
 
-## Notions utilisées
+La position du scroll.
 
-- Composants réutilisables : Composable
-- Modifier pour le style et le positionnement
-- Previews pour afficher le rendu en temps réel
-- Padding externe / interne
-- Callbacks
-- Paramètres de composants
-- Accessibilité de base
-- Layouts : Column, Row, Box (badge sur l'avatar), Spacer, Surface
-- Liste moderne : LazyRow pour les compétences
-- Card pour les compétences et les projets
-- OutlinedTextField en lecture seule pour le contact
-- Icon dans le bouton
-- Material 3 : couleurs personnalisées (rouge sombre), thème clair et sombre
+Elle sert seulement à l'affichage, donc pas besoin de la mettre dans le ViewModel.
 
-## Liste affichée
-Les compétences sont affichées dans une `LazyRow`, une liste horizontale qu'on fait défiler. Chaque compétence utilise le composable réutilisable `Skill`, qui l'affiche dans une `Card`.
+## State Hoisting
 
-## Choix du thème
-- **Couleurs** : un rouge sombre comme couleur principale, utilisé pour le titre et le bouton.
-- **Typographie** : les styles de `MaterialTheme.typography` (headline, title, body).
-- **Clair / sombre** : une palette pour chaque mode, visibles dans les deux previews.
+> Pourquoi votre composable d'écran principal peut-il être considéré comme stateless ?
 
-## Notions du chapitre Compose UI réutilisées
-Composables réutilisables avec paramètres, `Modifier`, padding externe et interne, callback sur le bouton, previews, et accessibilité de base.
+`ProfileScreen` ne garde aucun état.
 
-## Explication courte
+Il reçoit les données en paramètres et prévient le parent avec des callbacks quand l'utilisateur fait une action.
 
-#### Quels composables avez-vous créés ?
+## ViewModel
 
-> - Profile : Le composant de profil général
-> - ProfileCard : La carte du profil
-> - ProfileHeader : L'en-tête du profil
-> - Avatar : L'image de profil avec un badge, et le nom
-> - SectionTitle : Le titre d'une section
-> - Skill : Une compétence, affichée dans une Card
-> - ProjectCard : Un projet (nom + description), affiché dans une Card
-> - Information : Un champ en lecture seule (titre + valeur)
-> - Action : Le bouton d'action du profil
-> - ProfileLightPreview / ProfileDarkPreview : Les previews en mode clair et sombre
+> Quel est le rôle de votre ViewModel dans cette application ?
 
-#### Quel composable représente l'écran principal ?
+Il garde l'état de l'écran.
 
-> Profile(), appelé depuis MainActivity.
+Il réagit aux actions de l'utilisateur et met à jour la liste des projets affichés.
 
-#### Où utilisez-vous un padding externe ?
+## StateFlow
 
-> Dans MainActivity, lors de l'appel au composant Profile.
+> Comment l'interface est-elle informée lorsqu'un état change ?
 
-#### Où utilisez-vous un padding interne ?
+Le ViewModel expose l'état avec un `StateFlow`.
 
-> Dans ProfileCard : le Column à l'intérieur de la Surface a un padding de 20.dp, qui espace le contenu du bord de la carte.
+L'écran l'écoute avec `collectAsState()`. Quand l'état change, l'écran se met à jour tout seul.
 
-#### Quel composant reçoit un callback ?
+## Organisation du code
 
-> Le composant Action (bouton).
+- `ProfileViewModel` : l'état et la logique.
+- `ProfileUiState` : les données de l'écran.
+- `ProfileContainer` : relie le ViewModel à l'écran.
+- `ProfileScreen` : l'écran principal.
+- `ProjectCard` : l'affichage d'un projet.
 
-#### Quelle information d'accessibilité avez-vous ajoutée ?
+## Capture d'écran
 
-> - Le composant Button, qui indique à un lecteur d'écran que la zone est cliquable.
-> - Le contentDescription de l'avatar, qui permet au lecteur d'écran de décrire l'image.
-
-#### Pourquoi vos composants peuvent-ils être considérés comme réutilisables ?
-
-> Ce sont les parents qui définissent le contenu, le style et le positionnement.
-> Un composant peut être appelé plusieurs fois avec des paramètres différents, et il s'adapte.
+<!-- Glisser la capture ici depuis l'éditeur GitHub -->
