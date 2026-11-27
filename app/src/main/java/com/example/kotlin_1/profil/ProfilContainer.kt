@@ -17,6 +17,8 @@ fun ProfilContainer(
         projects = uiState.projects,
         search = uiState.search,
         onSearch = viewModel::onSearchQueryChange,
+        filterFavorites = uiState.filterFavorites,
+        filterDone = uiState.filterDone,
         onToggleFavorite = viewModel::onFavoriteClick,
         onToggleFavoritesOnlyFilter = viewModel::onToggleFavoriteOnlyFilter,
         onToggleDoneOnlyFilter = viewModel::onToggleDoneOnlyFilter,

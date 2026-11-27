@@ -66,7 +66,10 @@ class ProfileViewModel: ViewModel(){
             val matchesFavorite =
                 !state.filterFavorites || project.id in state.favorites
 
-            matchesSearch && matchesFavorite
+            val matchesDone =
+                !state.filterDone || project.done
+
+            matchesSearch && matchesFavorite && matchesDone
 
         }
     }

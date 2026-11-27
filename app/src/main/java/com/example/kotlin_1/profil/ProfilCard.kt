@@ -1,15 +1,22 @@
 package com.example.kotlin_1.profil
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -36,6 +43,8 @@ fun ProfilCard(
     onContactClick: () -> Unit,
     search: String,
     onSearch: (String) -> Unit,
+    filterFavorites: Boolean,
+    filterDone: Boolean,
     onToggleFavorite: (Int) -> Unit,
     onToggleFavoritesOnlyFilter: () -> Unit,
     onToggleDoneOnlyFilter: () -> Unit,
@@ -87,6 +96,42 @@ fun ProfilCard(
                 label = { Text(text = "Rechercher un projet") },
                 modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp)
             )
+
+            Row(modifier = Modifier.padding(bottom = 16.dp)){
+
+
+                val favoriteOnlyContainerColor = if (filterFavorites) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary
+                val favoriteOnlyContentColor   = if (filterFavorites) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary
+
+                val doneContainerColor = if (filterDone) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary
+                val doneContentColor   = if (filterDone) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary
+
+
+                OutlinedButton(
+                    onClick = onToggleFavoritesOnlyFilter,
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = favoriteOnlyContainerColor,
+                        contentColor = favoriteOnlyContentColor
+                    )
+                ) {
+                    Text("Mes favoris")
+                }
+
+                Spacer(modifier = Modifier.width(4.dp))
+
+                OutlinedButton(
+                    onClick = onToggleDoneOnlyFilter,
+                    shape = MaterialTheme.shapes.small,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = doneContainerColor,
+                        contentColor = doneContentColor
+                    )
+                ) {
+                    Text("Projet terminées")
+                }
+
+            }
 
 
 

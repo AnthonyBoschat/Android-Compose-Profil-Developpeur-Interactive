@@ -29,7 +29,7 @@ fun ProjectCard(
             )
             Text(
                 text = if(project.done) "Terminée" else "En cours",
-                color = if(project.done) MaterialTheme.colorScheme.onTertiaryContainer else MaterialTheme.colorScheme.onSecondaryContainer,
+                color = if(project.done) MaterialTheme.colorScheme.onTertiaryContainer else MaterialTheme.colorScheme.tertiaryContainer,
                 style = MaterialTheme.typography.bodySmall,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(bottom = 4.dp)

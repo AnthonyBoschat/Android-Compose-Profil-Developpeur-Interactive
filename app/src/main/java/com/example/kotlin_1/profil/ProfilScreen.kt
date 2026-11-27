@@ -15,6 +15,8 @@ fun ProfileScreen(
     projects: List<Project>,
     search: String,
     onSearch: (String) -> Unit,
+    filterFavorites: Boolean,
+    filterDone: Boolean,
     onToggleFavorite: (Int) -> Unit,
     onToggleFavoritesOnlyFilter: () -> Unit,
     onToggleDoneOnlyFilter: () -> Unit,
@@ -41,6 +43,8 @@ fun ProfileScreen(
 
         search = search,
         onSearch = onSearch,
+        filterFavorites = filterFavorites,
+        filterDone = filterDone,
         onToggleFavorite = onToggleFavorite,
         onToggleFavoritesOnlyFilter = onToggleFavoritesOnlyFilter,
         onToggleDoneOnlyFilter = onToggleDoneOnlyFilter,
