@@ -17,21 +17,24 @@ val DarkRed   = Color(0xFF651212)
 val Brick     = Color(0xFFA84B3C)
 val Gold      = Color(0xFFB8862E)
 
-// Thème sombre : versions plus claires, lisibles sur fond noir
-val LightRed  = Color(0xFFF6CFC9)
-val LightBrick = Color(0xFFE7BDB3)
-val LightGold = Color(0xFFE9C27F)
+
 
 private val DarkColorScheme = darkColorScheme(
-    primary   = LightRed,
-    secondary = LightBrick,
-    tertiary  = LightGold
+    primary   = Color(0xFFF6CFC9),
+    secondary = Color(0xFFE7BDB3),
+    tertiary  = Color(0xFFE9C27F),
+
+    onSecondaryContainer = Color(0xFFFFCD7A),
+    onTertiaryContainer = Color(0xFFC3FD9F),
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary   = DarkRed,
-    secondary = Brick,
-    tertiary  = Gold
+    primary   = Color(0xFF651212),
+    secondary = Color(0xFFA84B3C),
+    tertiary  = Color(0xFFB8862E),
+
+    onSecondaryContainer = Color(0xFFB97B01),
+    onTertiaryContainer = Color(0xFF245E01),
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),

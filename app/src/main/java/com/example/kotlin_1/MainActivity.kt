@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.kotlin_1.profil.Profil
+import com.example.kotlin_1.profil.ProfilContainer
 import com.example.kotlin_1.theme.Kotlin1Theme
 
 // Oui je suis un peu maniaque sur les alignement des paramètres.
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Kotlin1Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Profil(
+                    ProfilContainer(
                         modifier = Modifier
                             .padding(innerPadding)
                             .padding(16.dp)

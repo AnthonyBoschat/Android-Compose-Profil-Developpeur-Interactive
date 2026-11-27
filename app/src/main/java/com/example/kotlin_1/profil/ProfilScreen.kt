@@ -10,7 +10,15 @@ import com.example.kotlin_1.Project
 import com.example.kotlin_1.theme.Kotlin1Theme
 
 @Composable
-fun Profil(modifier: Modifier = Modifier) {
+fun ProfileScreen(
+    modifier: Modifier = Modifier,
+    projects: List<Project>,
+    search: String,
+    onSearch: (String) -> Unit,
+    onToggleFavorite: (Int) -> Unit,
+    onToggleFavoritesOnlyFilter: () -> Unit,
+    onToggleDoneOnlyFilter: () -> Unit,
+) {
     val skills: List<String> = listOf(
         "Kotlin et Jetpack Compose",
         "JavaScript, TypeScript et React",
@@ -18,11 +26,7 @@ fun Profil(modifier: Modifier = Modifier) {
         "Conception de bases de données",
         "Git et DevOps (CICD)"
     )
-    val projects: List<Project> = listOf(
-        Project("Google 2", "Un moteur de recherche comme Google, mais plus beua, plus rapide, parceque les ingénieurs de google sont mauvais"),
-        Project("Ariane 6", "Projet qui vise à éviter à nos fusée de se crasher."),
-        Project("Orion", "Une application qui permet de savoir ou se trouve les constellations dans le ciel.")
-    )
+
 
     ProfilCard(
         name         = "Anthony Boschat",
@@ -30,13 +34,18 @@ fun Profil(modifier: Modifier = Modifier) {
         age          = 32,
         description  = "Développeur full-stack passionné par la compréhension des systèmes, les sciences et l’automatisation. Je conçois et développe des solutions adaptées à vos besoins.",
         skills       = skills,
-        projects = projects,
+        projects     = projects,
         email        = "AnthonyBoschat.dev@hotmail.com",
         availability = "Non disponible",
-        onContactClick = {
+        onContactClick = {},
 
-        },
-        modifier     = modifier.fillMaxWidth()
+        search = search,
+        onSearch = onSearch,
+        onToggleFavorite = onToggleFavorite,
+        onToggleFavoritesOnlyFilter = onToggleFavoritesOnlyFilter,
+        onToggleDoneOnlyFilter = onToggleDoneOnlyFilter,
+
+        modifier     = modifier.fillMaxWidth(),
     )
 }
 
@@ -44,7 +53,7 @@ fun Profil(modifier: Modifier = Modifier) {
 @Composable
 fun ProfilLightPreview() {
     Kotlin1Theme {
-        Profil(
+        ProfilContainer(
             modifier = Modifier.padding(16.dp)
         )
     }
@@ -54,7 +63,7 @@ fun ProfilLightPreview() {
 @Composable
 fun ProfilDarkPreview() {
     Kotlin1Theme(darkTheme = true) {
-        Profil(
+        ProfilContainer(
             modifier = Modifier.padding(16.dp)
         )
     }
