@@ -60,4 +60,5 @@ L'écran l'écoute avec `collectAsState()`. Quand l'état change, l'écran se me
 
 ## Capture d'écran
 
-<!-- Glisser la capture ici depuis l'éditeur GitHub -->
+<img width="331" height="696" alt="image" src="https://github.com/user-attachments/assets/4227f88d-4773-4894-b9bc-842bd1437664" />
+
