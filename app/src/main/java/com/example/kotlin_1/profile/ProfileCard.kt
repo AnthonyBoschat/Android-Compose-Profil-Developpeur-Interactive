@@ -1,4 +1,4 @@
-package com.example.kotlin_1.profil
+package com.example.kotlin_1.profile
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -29,15 +29,20 @@ import com.example.kotlin_1.shared.Action
 import com.example.kotlin_1.shared.Information
 import com.example.kotlin_1.shared.SectionTitle
 
-
+val skills: List<String> = listOf(
+    "Kotlin et Jetpack Compose",
+    "JavaScript, TypeScript et React",
+    "Python et Django (Framework)",
+    "Conception de bases de données",
+    "Git et DevOps (CICD)"
+)
 
 @Composable
-fun ProfilCard(
+fun ProfileCard(
     name: String,
     title: String,
     age: Int,
     description: String,
-    skills: List<String>,
     projects : List<Project>,
     email: String,
     availability: String,
@@ -52,34 +57,30 @@ fun ProfilCard(
     onToggleDoneOnlyFilter: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val cardShape     = RoundedCornerShape(12.dp)
-    val cardElevation = 4.dp
-    val sectionSpace  = 16.dp
 
     Surface(
-        shape           = cardShape,
-        shadowElevation = cardElevation,
+        shape           = RoundedCornerShape(12.dp),
+        shadowElevation = 4.dp,
         modifier        = modifier
     ) {
-        var value = ""
-        // The whole card scrolls, so the project list keeps its natural height.
+
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
                 .padding(20.dp)
         ) {
-            ProfilHeader(
+            ProfileHeader(
                 name        = name,
                 title       = title,
                 age         = age,
                 description = description,
-                modifier    = Modifier.padding(bottom = sectionSpace)
+                modifier    = Modifier.padding(bottom = 16.dp)
             )
 
 
             SectionTitle(text = "Compétences")
 
-            LazyRow(modifier    = Modifier.padding(bottom = sectionSpace)) {
+            LazyRow(modifier    = Modifier.padding(bottom = 16.dp)) {
                 items(skills){ skill ->
                     Skill(
                         sentence = skill,
@@ -152,7 +153,7 @@ fun ProfilCard(
             Information(
                 title    = "Contact",
                 sentence = email,
-                modifier = Modifier.padding(top = sectionSpace)
+                modifier = Modifier.padding(top = 16.dp)
             )
 
             Information(

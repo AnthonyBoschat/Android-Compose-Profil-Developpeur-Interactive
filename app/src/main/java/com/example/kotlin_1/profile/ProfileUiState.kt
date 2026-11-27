@@ -1,4 +1,4 @@
-package com.example.kotlin_1.profil
+package com.example.kotlin_1.profile
 
 import com.example.kotlin_1.Project
 

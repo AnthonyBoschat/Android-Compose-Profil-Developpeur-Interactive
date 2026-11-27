@@ -1,4 +1,4 @@
-package com.example.kotlin_1.profil
+package com.example.kotlin_1.profile
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun ProfilContainer(
+fun ProfileContainer(
     modifier: Modifier = Modifier,
     viewModel: ProfileViewModel = viewModel()
 ){

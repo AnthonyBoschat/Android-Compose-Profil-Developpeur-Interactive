@@ -1,4 +1,4 @@
-package com.example.kotlin_1.profil
+package com.example.kotlin_1.profile
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ProfilHeader(
+fun ProfileHeader(
     name: String,
     title: String,
     age: Int,

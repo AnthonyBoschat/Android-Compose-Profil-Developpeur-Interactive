@@ -1,4 +1,4 @@
-package com.example.kotlin_1.profil
+package com.example.kotlin_1.profile
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card

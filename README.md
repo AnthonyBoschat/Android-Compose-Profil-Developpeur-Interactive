@@ -46,28 +46,28 @@ Composables réutilisables avec paramètres, `Modifier`, padding externe et inte
 
 #### Quels composables avez-vous créés ?
 
-> - Profil : Le composant de profil général
-> - ProfilCard : La carte du profil
-> - ProfilHeader : L'en-tête du profil
+> - Profile : Le composant de profil général
+> - ProfileCard : La carte du profil
+> - ProfileHeader : L'en-tête du profil
 > - Avatar : L'image de profil avec un badge, et le nom
 > - SectionTitle : Le titre d'une section
 > - Skill : Une compétence, affichée dans une Card
 > - ProjectCard : Un projet (nom + description), affiché dans une Card
 > - Information : Un champ en lecture seule (titre + valeur)
 > - Action : Le bouton d'action du profil
-> - ProfilLightPreview / ProfilDarkPreview : Les previews en mode clair et sombre
+> - ProfileLightPreview / ProfileDarkPreview : Les previews en mode clair et sombre
 
 #### Quel composable représente l'écran principal ?
 
-> Profil(), appelé depuis MainActivity.
+> Profile(), appelé depuis MainActivity.
 
 #### Où utilisez-vous un padding externe ?
 
-> Dans MainActivity, lors de l'appel au composant Profil.
+> Dans MainActivity, lors de l'appel au composant Profile.
 
 #### Où utilisez-vous un padding interne ?
 
-> Dans ProfilCard : le Column à l'intérieur de la Surface a un padding de 20.dp, qui espace le contenu du bord de la carte.
+> Dans ProfileCard : le Column à l'intérieur de la Surface a un padding de 20.dp, qui espace le contenu du bord de la carte.
 
 #### Quel composant reçoit un callback ?
 
