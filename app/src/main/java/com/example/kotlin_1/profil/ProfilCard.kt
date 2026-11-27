@@ -86,7 +86,7 @@ fun ProfilCard(
                 }
             }
 
-            SectionTitle(text = "Projets")
+            SectionTitle(text = "Projets (${projects.size})")
 
 
 
