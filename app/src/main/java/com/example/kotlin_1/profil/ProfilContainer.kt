@@ -16,6 +16,7 @@ fun ProfilContainer(
     ProfileScreen(
         projects = uiState.projects,
         search = uiState.search,
+        favorites = uiState.favorites,
         onSearch = viewModel::onSearchQueryChange,
         filterFavorites = uiState.filterFavorites,
         filterDone = uiState.filterDone,

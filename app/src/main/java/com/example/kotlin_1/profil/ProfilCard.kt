@@ -22,6 +22,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.kotlin_1.Project
 import com.example.kotlin_1.shared.Action
@@ -42,6 +43,7 @@ fun ProfilCard(
     availability: String,
     onContactClick: () -> Unit,
     search: String,
+    favorites: List<Int>,
     onSearch: (String) -> Unit,
     filterFavorites: Boolean,
     filterDone: Boolean,
@@ -100,17 +102,17 @@ fun ProfilCard(
             Row(modifier = Modifier.padding(bottom = 16.dp)){
 
 
-                val favoriteOnlyContainerColor = if (filterFavorites) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary
+                val favoriteOnlyContainerColor = if (filterFavorites) MaterialTheme.colorScheme.primary else Color.Transparent
                 val favoriteOnlyContentColor   = if (filterFavorites) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary
 
-                val doneContainerColor = if (filterDone) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary
+                val doneContainerColor = if (filterDone) MaterialTheme.colorScheme.primary else Color.Transparent
                 val doneContentColor   = if (filterDone) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary
 
 
                 OutlinedButton(
                     onClick = onToggleFavoritesOnlyFilter,
                     shape = MaterialTheme.shapes.small,
-                    colors = ButtonDefaults.buttonColors(
+                    colors = ButtonDefaults.outlinedButtonColors(
                         containerColor = favoriteOnlyContainerColor,
                         contentColor = favoriteOnlyContentColor
                     )
@@ -123,7 +125,7 @@ fun ProfilCard(
                 OutlinedButton(
                     onClick = onToggleDoneOnlyFilter,
                     shape = MaterialTheme.shapes.small,
-                    colors = ButtonDefaults.buttonColors(
+                    colors = ButtonDefaults.outlinedButtonColors(
                         containerColor = doneContainerColor,
                         contentColor = doneContentColor
                     )
@@ -139,7 +141,9 @@ fun ProfilCard(
                 items(projects) { project ->
                     ProjectCard(
                         project  = project,
-                        modifier = Modifier.padding(bottom = 6.dp).fillMaxWidth()
+                        modifier = Modifier.padding(bottom = 6.dp).fillMaxWidth(),
+                        onToggleFavorite = onToggleFavorite,
+                        isFavorite = project.id in favorites
                     )
                 }
             }

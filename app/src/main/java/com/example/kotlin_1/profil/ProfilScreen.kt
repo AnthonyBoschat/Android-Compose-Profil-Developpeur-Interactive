@@ -14,6 +14,7 @@ fun ProfileScreen(
     modifier: Modifier = Modifier,
     projects: List<Project>,
     search: String,
+    favorites: List<Int>,
     onSearch: (String) -> Unit,
     filterFavorites: Boolean,
     filterDone: Boolean,
@@ -43,6 +44,7 @@ fun ProfileScreen(
 
         search = search,
         onSearch = onSearch,
+        favorites = favorites,
         filterFavorites = filterFavorites,
         filterDone = filterDone,
         onToggleFavorite = onToggleFavorite,
